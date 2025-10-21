@@ -1,6 +1,56 @@
+// .devcontainer/devcontainer.json
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
-	"features": {
-		"ghcr.io/devcontainers-extra/features/node-asdf:0": {}
-	}
+  "name": "JavaScript Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    // Node.js via ASDF version manager
+    "ghcr.io/devcontainers-extra/features/node-asdf:0": {
+      "version": "20.9.0"
+    },
+    // Yarn package manager
+    "ghcr.io/devcontainers/features/yarn:1": {},
+    // ESLint for linting
+    "ghcr.io/devcontainers/features/eslint:1": {},
+    // Prettier for code formatting
+    "ghcr.io/devcontainers/features/prettier:1": {},
+    // GitHub CLI
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    // pnpm package manager
+    "ghcr.io/devcontainers/features/pnpm:1": {},
+    // Node.js debugging tools
+    "ghcr.io/devcontainers/features/node-debug:1": {},
+    // Common web tools (curl, wget, etc.)
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // JavaScript/TypeScript essentials
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "xabikos.javascriptsnippets",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        // Git & GitHub
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        // Debugging & testing
+        "ms-vscode.js-debug-nightly",
+        "hbenl.vscode-test-explorer",
+        "kavod-io.vscode-jest-test-adapter",
+        // Productivity & UX
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag",
+        "visualstudioexptteam.vscodeintellicode",
+        "naumovs.color-highlight",
+        "pkief.material-icon-theme",
+        "ritwickdey.LiveServer",
+        "oderwat.indent-rainbow",
+        "shardulm94.trailing-spaces",
+        "usernamehw.errorlens",
+        "gruntfuggly.todo-tree"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install",
+  "remoteUser": "vscode"
 }
